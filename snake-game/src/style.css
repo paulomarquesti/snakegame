@@ -7,7 +7,7 @@ body {
 }
 
 canvas {
-    border: 2px solid #fff;
+    border: 4px double #fff;
     background-color: #000;
 }
 
@@ -35,4 +35,9 @@ h1 {
     padding: 10px 30px;
     font-size: 1.1em;
     cursor: pointer;
+}
+
+body, h1, .score, #startBtn {
+    font-family: 'Press Start 2P', monospace;
+    letter-spacing: 2px;
 }
