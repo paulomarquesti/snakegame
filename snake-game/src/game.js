@@ -89,4 +89,17 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' && direction !== 'left') direction = 'right';
 });
 
+document.getElementById('upBtn').addEventListener('click', () => {
+    if (isRunning && direction !== 'down') direction = 'up';
+});
+document.getElementById('downBtn').addEventListener('click', () => {
+    if (isRunning && direction !== 'up') direction = 'down';
+});
+document.getElementById('leftBtn').addEventListener('click', () => {
+    if (isRunning && direction !== 'right') direction = 'left';
+});
+document.getElementById('rightBtn').addEventListener('click', () => {
+    if (isRunning && direction !== 'left') direction = 'right';
+});
+
 startBtn.addEventListener('click', startGame); // Inicia o jogo ao clicar
