@@ -9,18 +9,21 @@
 </head>
 <body>
     <h1>SNAKE GAME</h1>
+    <div id="scoreBoard">
+        <h2 class="score">SCORE: <span id="score">0</span></h2>
+    </div>
     <div id="gameArea">
         <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <button id="startBtn">START</button>
+        <div>
+            <button id="startBtn">START</button>
+        </div>
+        <br>
         <div id="controls">
-            <button class="dir-btn" id="upBtn">▲</button><br>
+            <button class="dir-btn" id="upBtn">▲</button>
             <button class="dir-btn" id="leftBtn">◀</button>
             <button class="dir-btn" id="downBtn">▼</button>
             <button class="dir-btn" id="rightBtn">▶</button>
         </div>
-    </div>
-    <div id="scoreBoard">
-        <h2 class="score">SCORE: <span id="score">0</span></h2>
     </div>
     <script src="game.js"></script>
 </body>
