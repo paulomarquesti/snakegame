@@ -42,6 +42,13 @@ body, h1, .score, #startBtn {
     letter-spacing: 2px;
 }
 
+#controlPanel {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    margin-top: 10px;
+}
+
 #controls {
     margin-top: 20px;
     width: 110px;
@@ -51,7 +58,6 @@ body, h1, .score, #startBtn {
     justify-content: center;
     align-items: center;
 }
-
 .dir-btn {
     position: absolute;
     width: 50px;
