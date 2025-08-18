@@ -78,6 +78,7 @@ function startGame() {
 function stopGame() {
     clearInterval(gameInterval); // Para o loop do jogo
     isRunning = false; // Marca que o jogo parou
+    startBtn.textContent = "START"; // Atualiza o texto do botão
 }
 
 document.addEventListener('keydown', (e) => {
@@ -101,5 +102,13 @@ document.getElementById('leftBtn').addEventListener('click', () => {
 document.getElementById('rightBtn').addEventListener('click', () => {
     if (isRunning && direction !== 'left') direction = 'right';
 });
-
-startBtn.addEventListener('click', startGame); // Inicia o jogo ao clicar
+// Inicia o jogo ao clicar*/
+startBtn.addEventListener('click', () => {
+    if (isRunning) {
+        stopGame();
+        startBtn.textContent = "START";
+    } else {
+        startGame();
+        startBtn.textContent = "PAUSE";
+    }
+});
