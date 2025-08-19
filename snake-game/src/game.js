@@ -78,7 +78,7 @@ function startGame() {
 function stopGame() {
     clearInterval(gameInterval); // Para o loop do jogo
     isRunning = false; // Marca que o jogo parou
-    startBtn.textContent = "START"; // Atualiza o texto do botão
+    startBtn.textContent = "START";
 }
 
 document.addEventListener('keydown', (e) => {
