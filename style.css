@@ -14,25 +14,25 @@ canvas {
 h1 {
     color: #fff;
     text-align: center;
-    margin-top: 30px;
+    margin-top:30px;
 }
 #scoreBoard {
     width: 100%;
     display: flex;
-    justify-content: center; /* centraliza os itens horizontalmente */
-    align-items: center;     /* alinha verticalmente */
+    justify-content: center; 
+    align-items: center;     
     background-color: #000;
     padding: 10px 0;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    gap: 20px; /* espaço entre SCORE e RECORD */
+    gap: 20px; 
 }
 
 .score {
     color: #fff;
     font-size: 19px;
     text-align: center;
-    margin: 0; /* remove o espaçamento padrão do h2 */
+    margin: 0; 
 }
 
 #gameArea {
