@@ -1,7 +1,8 @@
-const canvas = document.getElementById('gameCanvas'); // Obtém o elemento canvas do HTML
-const ctx = canvas.getContext('2d'); // Obtém o contexto 2D para desenhar no canvas
-const scoreSpan = document.getElementById('score'); // Obtém o elemento span da pontuação
-const startBtn = document.getElementById('startBtn'); // Obtém o botão de iniciar
+const canvas = document.getElementById('gameCanvas'); 
+const ctx = canvas.getContext('2d'); 
+const scoreSpan = document.getElementById('score');
+const highScoreSpan = document.getElementById('highScore'); 
+const startBtn = document.getElementById('startBtn'); 
 
 let snake, direction, food, score, gameInterval, isRunning = false; // Variáveis globais do jogo
 
