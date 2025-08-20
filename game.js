@@ -5,7 +5,7 @@ const highScoreSpan = document.getElementById('highScore');
 const startBtn = document.getElementById('startBtn'); 
 
 let highScore = localStorage.getItem('snakeHighScore') || 0;
-let snake, direction, food, score, gameInterval, isRunning = false; 
+let snake, direction, food, score, gameInterval, isRunning = false, isPaused = false, isGameOver = false; 
 
 highScoreSpan.textContent = highScore;
 
@@ -60,8 +60,7 @@ function moveSnake() {
         head.y < 0 || head.y >= canvas.height || // Colisão com parede vertical
         snake.slice(1).some(seg => seg.x === head.x && seg.y === head.y) // Colisão com o próprio corpo
     ) {
-        stopGame(); // Para o jogo
-        alert('GAME OVER! SCORE: ' + score); 
+        endGame(); // Para o jogo
     }
 }
 
@@ -71,21 +70,43 @@ function gameLoop() {
 }
 
 function startGame() {
-    if (isRunning) return; 
-    snake = [{ x: 200, y: 200 }]; 
-    direction = 'right'; 
-    food = spawnFood(); 
-    score = 0; 
-    scoreSpan.textContent = score; 
-    isRunning = true; 
-    draw(); 
-    gameInterval = setInterval(gameLoop, 100); // Inicia o loop do jogo na velocidade 100ms
+    snake = [{ x: 200, y: 200 }];
+    direction = 'right';
+    food = spawnFood();
+    score = 0;
+    scoreSpan.textContent = score;
+    isRunning = true;
+    isPaused = false;
+    isGameOver = false;
+    draw();
+    gameInterval = setInterval(gameLoop, 100);
+    startBtn.textContent = "PAUSE";
 }
 
-function stopGame() {
-    clearInterval(gameInterval); 
-    isRunning = false; 
+function pauseGame() {
+    clearInterval(gameInterval);
+    isRunning = false;
+    isPaused = true;
+    startBtn.textContent = "RESUME";
+    startBtn.classList.add("blinking");
+}
+
+function resumeGame() {
+    isRunning = true;
+    isPaused = false;
+    gameInterval = setInterval(gameLoop, 100);
+    startBtn.textContent = "PAUSE";
+    startBtn.classList.remove("blinking");
+}
+
+function endGame() {
+    clearInterval(gameInterval);
+    isRunning = false;
+    isPaused = false;
+    isGameOver = true;
     startBtn.textContent = "START";
+    startBtn.classList.remove("blinking");
+    alert('GAME OVER! SCORE: ' + score);
 }
 
 document.addEventListener('keydown', (e) => {
@@ -110,11 +131,17 @@ document.getElementById('rightBtn').addEventListener('click', () => {
 });
 
 startBtn.addEventListener('click', () => {
-    if (isRunning) {
-        stopGame();
-        startBtn.textContent = "START";
-    } else {
+    if (!isRunning && !isPaused && !isGameOver) {
+        // Estado inicial: começar o jogo
         startGame();
-        startBtn.textContent = "PAUSE";
+    } else if (isRunning) {
+        // Jogo rodando: pausar
+        pauseGame();
+    } else if (isPaused) {
+        // Jogo pausado: retomar
+        resumeGame();
+    } else if (isGameOver) {
+        // Após Game Over: reiniciar
+        startGame();
     }
 });

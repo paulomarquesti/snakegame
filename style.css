@@ -42,10 +42,21 @@ h1 {
 }
 
 #startBtn {
+    width: 170px;
     margin-top: 15px;
     padding: 10px 30px;
     font-size: 1.1em;
     cursor: pointer;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.blinking {
+  animation: blink 1s infinite;
 }
 
 body, h1, .score, #startBtn {
