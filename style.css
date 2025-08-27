@@ -127,7 +127,7 @@ body, h1, .score, #startBtn {
   font-family: 'Press Start 2P', monospace;
   font-size: 32px;
   color: hsl(0, 0%, 100%);
-  text-shadow: 0 0 10px hsla(0, 0%, 100%, 0.253);
+  text-shadow: 0 0 10px hsla(0, 0%, 100%, 0);
   opacity: 0;
   pointer-events: none;
   z-index: 10;

@@ -61,7 +61,7 @@ function moveSnake() {
     } else {
         snake.pop(); 
     }
-    // Verifica colisão com parede ou com o próprio corpo
+    // Verifica colisão 
     if (
         head.x < 0 || head.x >= canvas.width || // Colisão com parede horizontal
         head.y < 0 || head.y >= canvas.height || // Colisão com parede vertical
