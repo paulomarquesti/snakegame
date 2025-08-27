@@ -54,13 +54,13 @@ function moveSnake() {
         playSound('glup.wav');
         score++; 
         scoreSpan.textContent = score;
-        // Verifica se bateu o recorde
-    if (score > highScore) {
+        food = spawnFood();
+        if (score > highScore) {
         highScore = score;
+        playSound('record.ogg');
         highScoreSpan.textContent = highScore;
         localStorage.setItem('snakeHighScore', highScore);
-    } 
-        food = spawnFood(); 
+        }    
     } else {
         snake.pop(); 
     }
@@ -135,15 +135,19 @@ document.addEventListener('keydown', (e) => {
 });
 
 document.getElementById('upBtn').addEventListener('click', () => {
+    playSound('select.wav');
     if (isRunning && direction !== 'down') direction = 'up';
 });
 document.getElementById('downBtn').addEventListener('click', () => {
+    playSound('select.wav');
     if (isRunning && direction !== 'up') direction = 'down';
 });
 document.getElementById('leftBtn').addEventListener('click', () => {
+    playSound('select.wav');
     if (isRunning && direction !== 'right') direction = 'left';
 });
 document.getElementById('rightBtn').addEventListener('click', () => {
+    playSound('select.wav');
     if (isRunning && direction !== 'left') direction = 'right';
 });
 
