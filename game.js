@@ -10,13 +10,10 @@ let snake, direction, food, score, gameInterval, isRunning = false, isPaused = f
 highScoreSpan.textContent = highScore;
 
 //SFX
-
 function playSound(src) {
     const sound = new Audio(src);
     sound.play();
 }
-
-
 
 function spawnFood() {
     return {
