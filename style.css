@@ -118,3 +118,23 @@ body, h1, .score, #startBtn {
 .dir-btn:active {
     background: #555;
 }
+
+#gameOverMessage {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 32px;
+  color: hsl(0, 0%, 100%);
+  text-shadow: 0 0 10px hsla(0, 0%, 100%, 0.253);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  animation: none;
+}
+
+@keyframes blinkGameOver {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}

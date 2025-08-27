@@ -89,6 +89,8 @@ function startGame() {
     draw();
     gameInterval = setInterval(gameLoop, 100);
     startBtn.textContent = "PAUSE";
+    document.getElementById('gameOverMessage').style.opacity = '0';
+    document.getElementById('gameOverMessage').style.animation = 'none';
 }
 
 function pauseGame() {
@@ -117,9 +119,12 @@ function endGame() {
     isGameOver = true;
     startBtn.textContent = "START";
     startBtn.classList.remove("blinking");
-    setTimeout(() => {
+    const gameOverMessage = document.getElementById('gameOverMessage');
+    gameOverMessage.style.opacity = '1';
+    gameOverMessage.style.animation = 'blinkGameOver 1s infinite';
+    /*setTimeout(() => {
         alert('GAME OVER! SCORE: ' + score);
-    }, 300);
+    }, 300);*/
 }
 
 document.addEventListener('keydown', (e) => {
