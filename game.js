@@ -9,6 +9,15 @@ let snake, direction, food, score, gameInterval, isRunning = false, isPaused = f
 
 highScoreSpan.textContent = highScore;
 
+//SFX
+
+function playSound(src) {
+    const sound = new Audio(src);
+    sound.play();
+}
+
+
+
 function spawnFood() {
     return {
         x: Math.floor(Math.random() * 20) * 20,
@@ -42,6 +51,7 @@ function moveSnake() {
 
     // Verifica se a cobra comeu a comida
     if (head.x === food.x && head.y === food.y) {
+        playSound('glup.wav');
         score++; 
         scoreSpan.textContent = score;
         // Verifica se bateu o recorde
@@ -70,6 +80,7 @@ function gameLoop() {
 }
 
 function startGame() {
+    playSound('start.wav');
     snake = [{ x: 200, y: 200 }];
     direction = 'right';
     food = spawnFood();
@@ -84,6 +95,7 @@ function startGame() {
 }
 
 function pauseGame() {
+    playSound('pause.mp3');
     clearInterval(gameInterval);
     isRunning = false;
     isPaused = true;
@@ -92,6 +104,7 @@ function pauseGame() {
 }
 
 function resumeGame() {
+    playSound('resume.mp3');
     isRunning = true;
     isPaused = false;
     gameInterval = setInterval(gameLoop, 100);
@@ -100,16 +113,20 @@ function resumeGame() {
 }
 
 function endGame() {
+    playSound('gameover.wav');
     clearInterval(gameInterval);
     isRunning = false;
     isPaused = false;
     isGameOver = true;
     startBtn.textContent = "START";
     startBtn.classList.remove("blinking");
-    alert('GAME OVER! SCORE: ' + score);
+    setTimeout(() => {
+        alert('GAME OVER! SCORE: ' + score);
+    }, 300);
 }
 
 document.addEventListener('keydown', (e) => {
+    playSound('select.wav');
     if (!isRunning) return; 
     if (e.key === 'ArrowUp' && direction !== 'down') direction = 'up';
     if (e.key === 'ArrowDown' && direction !== 'up') direction = 'down';
