@@ -138,3 +138,163 @@ body, h1, .score, #startBtn {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.2; }
 }
+
+/* Responsividade para telas menores */
+@media (max-width: 500px) {
+    canvas {
+        width: 90vw !important;
+        height: 90vw !important;
+        max-width: 350px;
+        max-height: 350px;
+    }
+
+    #scoreBoard {
+        flex-direction: row;
+        gap: 8px;
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    .score {
+        font-size: 14px; /* Reduz o tamanho da fonte do Score e Record */
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    #gameArea {
+        width: 100vw;
+    }
+
+    #controlPanel {
+        flex-direction: row; /* Mantém os botões lado a lado */
+        gap: 60px;           /* Reduz o espaço entre os botões */
+        margin-top: 8px;
+    }
+
+    #controls {
+        width: 80px;
+        height: 80px;
+        margin-top: 10px;
+    }
+
+    .dir-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    #upBtn {
+        top: -10px;
+        left: 24px;
+    }
+    #downBtn {
+        bottom: -10px;
+        left: 24px;
+    }
+    #leftBtn {
+        top: 24px;
+        left: -10px;
+    }
+    #rightBtn {
+        top: 24px;
+        right: -10px;
+    }
+
+    #startBtn {
+        width: 110px;
+        font-size: 0.9em;
+        padding: 8px 10px 8px 10px;
+    }
+
+    #gameOverMessage {
+        font-size: 18px;
+        width: 90vw;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        white-space: normal;
+    }
+}
+
+/* Estilos para telas médias */
+@media (max-width: 900px) and (min-width: 501px) {
+    canvas {
+        width: 70vw !important;
+        height: 70vw !important;
+        max-width: 500px;
+        max-height: 500px;
+    }
+
+    #scoreBoard {
+        gap: 14px;
+        font-size: 17px;
+        padding: 8px 0;
+    }
+
+    .score {
+        font-size: 17px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-top: 16px;
+    }
+
+    #gameArea {
+        width: 100vw;
+    }
+
+    #controlPanel {
+        gap: 65px;
+        margin-top: 10px;
+    }
+
+    #controls {
+        width: 100px;
+        height: 100px;
+        margin-top: 12px;
+    }
+
+    .dir-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 10px;
+    }
+
+    #upBtn {
+        top: -15px;
+        left: 30px;
+    }
+    #downBtn {
+        bottom: -15px;
+        left: 30px;
+    }
+    #leftBtn {
+        top: 30px;
+        left: -15px;
+    }
+    #rightBtn {
+        top: 30px;
+        right: -15px;
+    }
+
+    #startBtn {
+        width: 130px;
+        font-size: 1em;
+        padding: 9px 18px;
+    }
+
+    #gameOverMessage {
+        font-size: 24px;
+        width: 80vw;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        white-space: normal;
+    }
+}
